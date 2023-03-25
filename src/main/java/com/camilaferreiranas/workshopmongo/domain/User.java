@@ -42,6 +42,11 @@ public class User  implements Serializable{
 		return Objects.equals(id, other.id);
 	}
 	
+	public User(String name, String email) {
+		this.name = name;
+		this.email = email;
+	}
+	
 	
 	
 }
