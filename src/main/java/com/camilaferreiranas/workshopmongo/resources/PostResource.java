@@ -24,13 +24,13 @@ public class PostResource {
 	private PostService postService;
 
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<PostDTO> findById(@PathVariable String id) {
+	public ResponseEntity<PostDTO> findPostById(@PathVariable String id) {
 		Post post = postService.findPostById(id);
 		return ResponseEntity.ok().body(new PostDTO(post));
 	}
 
 	@GetMapping(value = "/titlesearch")
-	public ResponseEntity<List<PostDTO>> findByTitle(@RequestParam(value = "text", defaultValue = "text") String text) {
+	public ResponseEntity<List<PostDTO>> findPostByTitle(@RequestParam(value = "text", defaultValue = "text") String text) {
 		text = URL.decodeParam(text);
 		List<Post> list = postService.findByTitle(text);
 		List<PostDTO> listDto = list.stream().map(x -> new PostDTO(x)).collect(Collectors.toList());
