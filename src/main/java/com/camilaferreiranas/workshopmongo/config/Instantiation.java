@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.TimeZone;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
@@ -19,6 +21,8 @@ import com.camilaferreiranas.workshopmongo.repository.UserRepository;
 @Configuration
 public class Instantiation implements CommandLineRunner {
 
+
+	final Logger logger = LoggerFactory.getLogger(Instantiation.class);
 	@Autowired
 	private UserRepository userRepository;
 
@@ -30,7 +34,8 @@ public class Instantiation implements CommandLineRunner {
 
 		resetDatabase();
 		configureValues();
-
+		logger.info("Iniciando a aplicação...");
+		logger.info("Resetando o banco de dados e adicionando novos valores...");
 	}
 
 	private void resetDatabase() {
