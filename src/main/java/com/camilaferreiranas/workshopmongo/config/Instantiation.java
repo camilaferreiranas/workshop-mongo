@@ -21,7 +21,6 @@ import com.camilaferreiranas.workshopmongo.repository.UserRepository;
 @Configuration
 public class Instantiation implements CommandLineRunner {
 
-
 	final Logger logger = LoggerFactory.getLogger(Instantiation.class);
 	@Autowired
 	private UserRepository userRepository;
